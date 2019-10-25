@@ -12,6 +12,7 @@ export interface ImageSlider {
 })
 export class ImagerSlliderComponent implements OnInit {
 
+  selectedIndex = 0;
   @Input() sliders: ImageSlider[] = [];
   @Input() slideHeight = '160px';
   @Input() intervalBySeconds = 2;
@@ -22,20 +23,20 @@ export class ImagerSlliderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.imgSlider.nativeElement);
-    this.imgSlider.nativeElement.innerHTML = '<span> hello </span>';
+    console.log("imgSlider:" + this.imgSlider.nativeElement);
+    //this.imgSlider.nativeElement.innerHTML = '<span> hello </span>';
 
   }
 
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    //console.log(this.imgs);
+    console.log(this.imgs);
     //this.imgs.forEach(item => item.nativeElement.style.height = '100px');
-    /**this.imgs.forEach(item => {
+   this.imgs.forEach(item => {
       this.rd2.setStyle(item.nativeElement,'height','100px');
     });
-    **/
+    
    let i = 0;
     setInterval(() =>{    
       /**
@@ -48,9 +49,14 @@ export class ImagerSlliderComponent implements OnInit {
       this.rd2.setProperty(
         this.imgSlider.nativeElement, 
         'scrollLeft', 
-        ((++i % this.sliders.length )* this.imgSlider.nativeElement.scrollWidth) /this.sliders.length );
+        ((++this.selectedIndex % this.sliders.length )* this.imgSlider.nativeElement.scrollWidth) /this.sliders.length );
     },this.intervalBySeconds);
 
+  }
+
+  handleScroll(ev){
+   const ratio = (ev.target.scrollLeft * this.sliders.length) / ev.target.scrollWidth ;
+   this.selectedIndex = Math.round(ratio);
   }
 
 }

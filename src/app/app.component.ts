@@ -11,8 +11,8 @@ import { ImagerSlliderComponent } from './component';
 export class AppComponent {
   scrollableTabBgColor = 'cornsilk';
 
-  @ViewChild('ImagerSlliderComponent', {static:true})
-  imageSlider: ImagerSlliderComponent;
+  //@ViewChild('ImagerSlliderComponent', {static:true})
+  //imageSlider: ImagerSlliderComponent;
   @ViewChildren('imageSlider')
   imgSlider:ImagerSlliderComponent;
 
