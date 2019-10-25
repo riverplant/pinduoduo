@@ -1,1 +1,15 @@
-<app-srollable-tab></app-srollable-tab>
+<app-srollable-tab 
+[menus]="topMenus"
+[backgroudColor]="scrollableTabBgColor"
+titleActiveColor = "blue"
+titleColor = "red"
+indicatorColor = "red"
+(tabSelected)="handleTabSelection($event)"
+*ngIf="scrollableTabBgColor==='cornsilk'">
+</app-srollable-tab>
+<app-imager-sllider 
+[sliders] = "imageSliders" 
+#imageSlider
+>
+
+</app-imager-sllider>
