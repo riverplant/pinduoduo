@@ -1,0 +1,5 @@
+<input [value] = "username" (input) = "username = $event.target.value">
+[value] = "username"  绑定username值到input的value属性
+
+(input) = "username = $event.target.value"  绑定表达式到input的input事件
+"username = $event.target.value" 会在input事件触发执行

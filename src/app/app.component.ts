@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewChildren , ElementRef } from '@angular/core';
+import { Component, ViewChild, ViewChildren , ElementRef, QueryList } from '@angular/core';
 import { TopMenu } from './component';
 import { ImageSlider } from './component';
 import { ImagerSlliderComponent } from './component';
@@ -15,7 +15,7 @@ export class AppComponent {
   //imageSlider: ImagerSlliderComponent;
   @ViewChildren('imageSlider')
   imgSlider:ImagerSlliderComponent;
-
+  
   topMenus : TopMenu[] = [
     {
       title:'remeng',
@@ -56,27 +56,17 @@ export class AppComponent {
       ];
       imageSliders:ImageSlider[] = [
         {
-           imgUrl:'',
+           imgUrl:'https://www.runoob.com/wp-content/uploads/2014/07/slide1.png',
            link:'',
            caption:''
          },
          {
-          imgUrl:'',
+          imgUrl:'https://www.runoob.com/wp-content/uploads/2014/07/slide2.png',
           link:'',
           caption:''
         },
         {
-          imgUrl:'',
-          link:'',
-          caption:''
-        },
-        {
-          imgUrl:'',
-          link:'',
-          caption:''
-        },
-        {
-          imgUrl:'',
+          imgUrl:'https://www.runoob.com/wp-content/uploads/2014/07/slide3.png',
           link:'',
           caption:''
         }];
