@@ -1,7 +1,6 @@
 import { Component, ViewChild, ViewChildren , ElementRef, QueryList } from '@angular/core';
-import { TopMenu } from './component';
-import { ImageSlider } from './component';
-import { ImagerSlliderComponent } from './component';
+import { TopMenu ,ImageSlider,ImagerSlliderComponent } from './shared/component';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { ImagerSlliderComponent } from './component';
 })
 export class AppComponent {
   scrollableTabBgColor = 'cornsilk';
-
+  username = '';
   //@ViewChild('ImagerSlliderComponent', {static:true})
   //imageSlider: ImagerSlliderComponent;
   @ViewChildren('imageSlider')

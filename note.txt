@@ -3,3 +3,13 @@
 
 (input) = "username = $event.target.value"  绑定表达式到input的input事件
 "username = $event.target.value" 会在input事件触发执行
+$event : 表达式, 提供事件的数据
+
+
+-------------------------------------------
+ngModel: FormsModule 
+[(ngModel)] = "变量"   进行双向绑定
+==> [ngModel] = "username"  (ngModelChange) = "username = $event"
+
+---------------------create module-------------------------------------------------------
+ng g m Home --routing
