@@ -1,4 +1,5 @@
 <input type="text" [value] = "username" (input) = "username = $event.target.value"/> 
 
 <!-- <input type="text" [(ngModel)]="username" /> -->
-<span>Hello , {{username}}</span>
+<p (click)="handleClick()">Hello , {{username}}</p>
+{{result}} 

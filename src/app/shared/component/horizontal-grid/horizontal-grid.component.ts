@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Emoji, Confirmable } from '../../decorators';
 
 @Component({
   selector: 'app-horizontal-grid',
@@ -9,6 +10,10 @@ export class HorizontalGridComponent implements OnInit {
 
   private _username = "";
   @Output() usernameChange = new EventEmitter;
+  
+  //自定义注解
+  @Emoji() result = 'hello';
+
   constructor() { }
 
   ngOnInit() {
@@ -25,4 +30,8 @@ export class HorizontalGridComponent implements OnInit {
    this.usernameChange.emit(username);
  }
  
+ @Confirmable('are u sur?')
+ handleClick(){
+   console.log("clicked...");
+ }
 }
