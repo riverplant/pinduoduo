@@ -1,5 +1,13 @@
-<input type="text" [value] = "username" (input) = "username = $event.target.value"/> 
+<div class="container" 
+[ngStyle]="{
+    'grid-template-rows': templateRows, 
+    'grid-template-columns': templateColumns
+}"
+(scroll)="handleScroll($event)"
+>
+     <ng-content select="[appGridItem]"></ng-content>
+</div>
 
-<!-- <input type="text" [(ngModel)]="username" /> -->
-<p (click)="handleClick()">Hello , {{username}}</p>
-{{result}} 
+<div class="underline" *ngIf="scrollable">
+    <div class="highlight" [ngStyle]="{'margin': sliderMargin}"></div>
+</div>

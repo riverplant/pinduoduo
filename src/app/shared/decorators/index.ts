@@ -33,3 +33,10 @@ export function Confirmable( message:string){
       }
      
   } 
+  /**
+   * <div [ngSwitch]="conditionExpression">
+   * <ng-template [ngSwitchCase]="case1Exp">...</nb-template>
+   * <ng-template ngSwitchCase="case2LiteralString">...</nb-template>
+   * <ng-template ngSwitchDefault">...</nb-template>
+   * </div>
+   */

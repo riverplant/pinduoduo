@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SrollableTabComponent , ImagerSlliderComponent , HorizontalGridComponent } from './component';
+import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } from './directives';
+
 
 
 
@@ -9,7 +11,10 @@ import { SrollableTabComponent , ImagerSlliderComponent , HorizontalGridComponen
   declarations: [
     SrollableTabComponent,
     ImagerSlliderComponent,
-    HorizontalGridComponent
+    HorizontalGridComponent,
+    GridItemDirective,
+    GridItemImageDirective,
+    GridItemTitleDirective
   ],
   imports: [
     CommonModule, 
@@ -20,7 +25,10 @@ import { SrollableTabComponent , ImagerSlliderComponent , HorizontalGridComponen
     FormsModule,
     SrollableTabComponent,
     ImagerSlliderComponent,
-    HorizontalGridComponent
+    HorizontalGridComponent,
+    GridItemDirective,
+    GridItemImageDirective,
+    GridItemTitleDirective
   ]
 })
 export class SharedModule { }

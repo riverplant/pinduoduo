@@ -8,6 +8,7 @@ import { OnDestroy } from '@angular/core';
 export interface TopMenu {
   title: string;
   link?: string;
+  id:number
 }
 
 interface AddFunc {
@@ -72,7 +73,7 @@ dict : Dict = {
  * run first
  */
 constructor() {
-  console.log(this.dict.a);
+  //console.log(this.dict.a);
 }
 
 handleSelection(index: number){

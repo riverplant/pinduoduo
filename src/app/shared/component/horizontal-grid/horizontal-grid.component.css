@@ -1,3 +1,21 @@
 input {
     border: 1px dashed black; 
 }
+/**定义宿主的样式*/
+:host { 
+    display: flex;
+   overflow-x: auto;
+}
+.container{
+    background-color: #fff;
+    padding: 5px,0;
+    overflow-x: auto;
+    overflow-y: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    display: grid;
+    place-content: stretch;
+    place-items: center;
+    grid-gap: 0.4rem;
+    grid-auto-flow: row;
+}

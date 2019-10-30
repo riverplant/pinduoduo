@@ -1,8 +1,6 @@
 <ul  [ngStyle]="{'background-color': backgroudColor}">
         <li *ngFor="let item of menus; let i = index; let first = first; let even = even;  trackBy:item ? item.title: null">
           <a 
-          href={{item.link}} 
-          [class.even] = "even"
           [ngStyle]="{'color': i == selectedIndex ? titleActiveColor : titleColor}"
           (click)="handleSelection(i)">
             {{item.title}}
@@ -12,5 +10,6 @@
         <ng-template #elseTemp>
         </ng-template>      
  </ul>
- <ng-content ></ng-content>
+ <!--投影组建,可以在父组件使用本组件标签中添加投影内容,可以通过select添加投影内容限制-->
+ <ng-content></ng-content>
  
