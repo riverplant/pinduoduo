@@ -97,12 +97,28 @@ export class HomeDetailComponent implements OnInit {
       },
     ];
   
+  //http://localhost:4200/home/hot;name=zhangsan?proId=2&userId=10
   ngOnInit() {
+    /**
+     * params:
+        name: "zhangsan"
+        tabLink: "hot"
+     */
     this.router.paramMap.subscribe(params =>{
       console.log('params',params);
       this.selectedTabLink = params.get('tabLink');
-      console.log('selectedTabLink',this.selectedTabLink);
-    })
+      //console.log('selectedTabLink',this.selectedTabLink);
+      
+    });
+    /**
+     * params:
+         proId: "2"
+         userId: "10"
+     */
+    this.router.queryParamMap.subscribe(params =>{
+      console.log('queryParamMap',params);
+    });
+    //查询结果可以并存
   }
 
 }

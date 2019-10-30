@@ -18,7 +18,16 @@
         
 </div>
 <ng-template #other>
-    Other works
+  {{selectedTabLink}}
 </ng-template>
+<!--routerLinkActive="active" 设置样式为active-->
+<!--[queryParams] = "{name:'zhangsan'}" 传递查询参数-->
+<a [routerLink]="['grand']"  routerLinkActive="active" [queryParams] = "{name:'zhangsan',gender:'male'}">got to grand</a>
+
+<!--http://localhost:4200/home/hot/(grand//second:aux)?name=zhangsan&gender=male-->
+<a [routerLink]="[{outlets:{second:['aux']}}]"  routerLinkActive="active" [queryParams] = "{name:'zhangsan',gender:'male'}">got to aux</a>
+<router-outlet></router-outlet>
+<router-outlet name="second"></router-outlet>
+
 
 

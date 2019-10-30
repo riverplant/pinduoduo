@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'
 import { SharedModule } from './shared/shared.module';
@@ -10,6 +10,7 @@ import { MyModule } from './my/my.module';
 import { ProductModule } from './product/product.module';
 import { RecommendModule } from './recommend/recommend.module';
 import { HomeRoutingModule } from './home/home-routing.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -24,7 +25,9 @@ import { HomeRoutingModule } from './home/home-routing.module';
     AppRoutingModule,
     HomeRoutingModule
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
