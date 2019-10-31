@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeContainerComponent, HomeDetailComponent, HomeGrandComponent, HomeAuxComponent } from './components';
+import { HomeContainerComponent, HomeDetailComponent, HomeGrandComponent, HomeAuxComponent, ParentComponent } from './components';
 
 /**
  * <a[routerLink]="['/home',tab.link, {name:'val1'}]">...</a>
@@ -41,7 +41,13 @@ const routes: Routes = [
           }
         ]
       }
+      
     ]
+  },
+  {
+    path: 'change-detection',
+    pathMatch: 'full',
+    component: ParentComponent
   }
 ];
 

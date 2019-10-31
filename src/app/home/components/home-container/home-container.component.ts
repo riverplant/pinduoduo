@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
+import { Component, OnInit, ViewChildren, Inject } from '@angular/core';
 import { ImagerSlliderComponent, TopMenu } from 'src/app/shared';
 import { Router } from '@angular/router';
+import { HomeService, token } from '../../services';
 
 @Component({
   selector: 'app-home-container',
@@ -14,58 +15,15 @@ export class HomeContainerComponent implements OnInit {
   @ViewChildren('imageSlider')
   imgSlider:ImagerSlliderComponent;
   
-  topMenus : TopMenu[] = [
-    {
-      title:'remeng',
-      link:'hot',
-      id:1
-      },
-      {
-      title:'nanzhuang',
-      link:'men',
-      id:2
-      },
-      {
-      title:'shouji',
-      link:'mobile' ,
-      id:3
-      },
-      {
-      title:'yundong',
-      link:'sport' ,
-      id:4
-      },
-      {
-      title:'jiafang',
-      link:'maison' ,
-      id:5
-      },
-      {
-      title:'baihuo',
-      link:'department' ,
-      id:6
-       },
-       {
-        title:'diannao',
-        link:'pc' ,
-        id:7
-        },
-        {
-        title:'neiyi',
-        link:'linge' ,
-        id:8
-        },
-        {
-        title:'muying',
-        link:'enfant' ,
-        id:9
-        }
-      ];
-      
+  topMenus : TopMenu[] = [];
+    
+  constructor(private router : Router, private service : HomeService ,@Inject(token)private baseUrl: string) { 
 
-  constructor(private router : Router) { }
+  }
 
   ngOnInit() {
+      this.topMenus = this.service.getTabs();
+      
   }
   handleTabSelection(tabMenu : TopMenu){
    // const colors  = ['red','blue','black'];

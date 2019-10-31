@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { interval } from 'rxjs';
 /**
  *自定义一个管道:计算时间差
  */
@@ -29,7 +28,8 @@ export class AgoPipe implements PipeTransform {
             let counter = 0;
             for(const unitName in intervals) {
                     if(intervals.hasOwnProperty(unitName)){
-                        const unitValue = intervals[unitName];counter = Math.floor(second / unitValue);
+                        const unitValue = intervals[unitName];
+                        counter = Math.floor(second / unitValue);
                         if(counter > 0){
                             return `${counter} ${unitName} last`;
                         }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, Output, AfterContentInit, ChangeDetectionStrategy } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
 import { OnChanges } from '@angular/core';
@@ -21,7 +21,8 @@ interface Dict {
 @Component({
   selector: 'app-srollable-tab',
   templateUrl: './srollable-tab.component.html',
-  styleUrls: ['./srollable-tab.component.css']
+  styleUrls: ['./srollable-tab.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SrollableTabComponent implements OnInit , OnChanges , AfterContentInit , AfterViewInit ,OnDestroy {
   /**
