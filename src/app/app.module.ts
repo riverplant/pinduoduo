@@ -2,14 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'
-import { SharedModule } from './shared/shared.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import {  HomeModule } from './home';
+import {  HomeModule, ParamInterceptor, NotificationInterceptor } from './home';
 import { AppRoutingModule } from './app-routing.module';
 import { MyModule } from './my/my.module';
+import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { RecommendModule } from './recommend/recommend.module';
 import { HomeRoutingModule } from './home/home-routing.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,10 +25,20 @@ import { HomeRoutingModule } from './home/home-routing.module';
     RecommendModule,
     HomeModule,
     AppRoutingModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    HttpClientModule
   ],
   providers: [
-   
+   {
+     provide:HTTP_INTERCEPTORS,
+     useClass:ParamInterceptor,
+     multi:true
+   },
+   {
+    provide:HTTP_INTERCEPTORS,
+    useClass:NotificationInterceptor,
+    multi:true
+  }
   ],
   bootstrap: [AppComponent]
 })

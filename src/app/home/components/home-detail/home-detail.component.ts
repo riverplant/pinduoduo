@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Channel, ImageSlider } from 'src/app/shared';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../services';
@@ -10,7 +10,7 @@ import { HomeService } from '../../services';
 })
 export class HomeDetailComponent implements OnInit {
   selectedTabLink;
-  constructor(private router :ActivatedRoute , private service : HomeService) { 
+  constructor(private router :ActivatedRoute , private service : HomeService , private cd : ChangeDetectorRef) { 
 
   }
   imageSliders:ImageSlider[] = [];
@@ -18,8 +18,15 @@ export class HomeDetailComponent implements OnInit {
   
   //http://localhost:4200/home/hot;name=zhangsan?proId=2&userId=10
   ngOnInit() {
-    this.imageSliders = this.service.getImageSlider();
-    this.channels = this.service.getChannels();
+    //banners
+     this.service.getImageSlider().subscribe(
+      banners => {
+        this.imageSliders = banners;
+      }
+    );
+    this.service.getChannels().subscribe(channels => {
+      this.channels = channels;
+    });
     /**
      * params:
         name: "zhangsan"
@@ -29,6 +36,7 @@ export class HomeDetailComponent implements OnInit {
       console.log('params',params);
       this.selectedTabLink = params.get('tabLink');
       //console.log('selectedTabLink',this.selectedTabLink);
+      this.cd.markForCheck();
       
     });
     /**
