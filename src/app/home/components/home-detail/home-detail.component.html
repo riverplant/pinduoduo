@@ -1,5 +1,5 @@
-<div *ngIf="selectedTabLink == 'hot' else other">
-        <app-imager-sllider [sliders] = "imageSliders" #imageSlider></app-imager-sllider>
+<div *ngIf="(selectedTabLink$ | async)  == 'hot' else other">
+        <app-imager-sllider [sliders] = "(imageSliders$ | async)" #imageSlider></app-imager-sllider>
 
         <app-horizontal-grid >
         <!--<input type="text" [value] = "username" (input) = "username = $event.target.value"/> 
@@ -9,7 +9,7 @@
         <!--指令所在的元素叫宿主(Host)-->
         <!--@HostBinding:绑定宿主属性或者样式-->
         <!--@HostListener:绑定宿主的事件-->
-        <div appGridItem *ngFor="let item of channels">
+        <div appGridItem *ngFor="let item of (channels$ | async)">
                 <img [src]="item.icon" [alt]="item.alt" [appGridItemImage]="'2rem'" [fitMode]="'cover'" >
                 <span [appGridItemTitle]="'0.6rem'" >{{item.title}}</span>
             </div>
@@ -18,14 +18,15 @@
         
 </div>
 <ng-template #other>
-  {{selectedTabLink}}
+   <!--如果不是,则显示路径参数-->
+  {{selectedTabLink$ | async}}
 </ng-template>
 <!--routerLinkActive="active" 设置样式为active-->
 <!--[queryParams] = "{name:'zhangsan'}" 传递查询参数-->
-<a [routerLink]="['grand']"  routerLinkActive="active" [queryParams] = "{name:'zhangsan',gender:'male'}">got to grand</a>
+<!-- <a [routerLink]="['grand']"  routerLinkActive="active" [queryParams] = "{name:'zhangsan',gender:'male'}">got to grand</a> -->
 
 <!--http://localhost:4200/home/hot/(grand//second:aux)?name=zhangsan&gender=male-->
-<a [routerLink]="[{outlets:{second:['aux']}}]"  routerLinkActive="active" [queryParams] = "{name:'zhangsan',gender:'male'}">got to aux</a>
+<!-- <a [routerLink]="[{outlets:{second:['aux']}}]"  routerLinkActive="active" [queryParams] = "{name:'zhangsan',gender:'male'}">got to aux</a> -->
 <router-outlet></router-outlet>
 <router-outlet name="second"></router-outlet>
 

@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root'//直接放入root,不需要再在home.module.ts的providers中
 })
 export class HomeService {
+  //注入HttpClient
   constructor(private http: HttpClient){
 
   }

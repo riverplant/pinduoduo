@@ -5,12 +5,13 @@ import { OnChanges } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 
+
+
 export interface TopMenu {
   title: string;
   link?: string;
   id:number
 }
-
 interface AddFunc {
   (x: number , y: number):number
 }

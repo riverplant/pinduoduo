@@ -1,6 +1,6 @@
 
 <app-srollable-tab 
-[menus]="topMenus"
+[menus]="topMenus$ | async"
 [backgroudColor]="scrollableTabBgColor"
 titleActiveColor = "blue"
 titleColor = "red"

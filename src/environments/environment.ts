@@ -1,11 +1,11 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+//定义环境变量
 export const environment = {
   production: false,
   baseUrl: 'http://apis.imooc.com/api',
-  icode: 'C38C0933E7B4DA57'
+  icode: '13159AD1ADD19FD6'
 };
 
 /*

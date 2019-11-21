@@ -1,0 +1,11 @@
+<app-horizontal-grid [cols]='5' [displayCols]='5'>
+       
+        <div appGridItem *ngFor="let item of tabItems; let idx = index">
+                <img [src]="idx === selectedIndex ? item.selectedIcon : item.icon " 
+                [appGridItemImage]="'2rem'" 
+                [fitMode]="'cover'" 
+                (click)='toggleSelectedTab(idx)'>
+                <span [appGridItemTitle]="'0.6rem'" >{{item.title}}</span>
+            </div>
+        
+        </app-horizontal-grid>
