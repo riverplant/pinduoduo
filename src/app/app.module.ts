@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { RecommendModule } from './recommend/recommend.module';
 import { HomeRoutingModule } from './home/home-routing.module';
+import { CategoryModule } from './category';
+import { ChatModule } from './chat';
 
 
 @NgModule({
@@ -23,6 +25,9 @@ import { HomeRoutingModule } from './home/home-routing.module';
     MyModule,
     ProductModule,
     RecommendModule,
+    CategoryModule,
+    ChatModule,
+    MyModule,
     HomeModule,
     AppRoutingModule,
     HomeRoutingModule,

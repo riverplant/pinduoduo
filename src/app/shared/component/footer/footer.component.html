@@ -4,7 +4,7 @@
                 <img [src]="idx === selectedIndex ? item.selectedIcon : item.icon " 
                 [appGridItemImage]="'2rem'" 
                 [fitMode]="'cover'" 
-                (click)='toggleSelectedTab(idx)'>
+                (click)='toggleSelectedTab(idx)'><!--点击切换按钮-->
                 <span [appGridItemTitle]="'0.6rem'" >{{item.title}}</span>
             </div>
         

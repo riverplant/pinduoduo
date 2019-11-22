@@ -57,8 +57,8 @@ ngOnDestroy(): void {
   //Add 'implements OnDestroy' to the class.
   console.log("ngOnDestroy...");
 }
-  selectedIndex = -1;
   title = 'pinduoduo';
+  @Input() selectedTabLink: string;
   @Input() menus: TopMenu[] = [];
   @Input() titleActiveColor = 'yellow';
   @Input() titleColor = 'blue';
@@ -79,7 +79,7 @@ constructor() {
 }
 
 handleSelection(index: number){
-  this.selectedIndex = index;
-  this.tabSelected.emit(this.menus[this.selectedIndex]);
+ 
+  this.tabSelected.emit(this.menus[index]);
 }
 }

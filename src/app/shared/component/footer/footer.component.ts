@@ -5,7 +5,7 @@ import { TabItem } from '../../domain';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush//笨组件
 })
 /**
  * 
@@ -46,14 +46,17 @@ export class FooterComponent implements OnInit {
 ]
 
 @Input() selectedIndex = 0;
+
+//定义一个组件的输出函数,有父主键调用和处理
 @Output() tabSelected = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleSelectedTab(idx){
+  toggleSelectedTab(idx : number){
     this.selectedIndex = idx;
-    this.tabSelected.emit(this.tabSelected[idx]);
+    //路由跳转封在父主键当中
+    this.tabSelected.emit(this.tabItems[idx]);
   }
 }

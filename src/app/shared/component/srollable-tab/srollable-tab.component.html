@@ -5,7 +5,9 @@
           (click)="handleSelection(i)">
             {{item.title}}
           </a>
-          <span class="indicator" [ngStyle]="{'background-color':indicatorColor}" *ngIf="i === selectedIndex else elseTemp"></span>
+          <span class="indicator" 
+          [ngStyle]="{'background-color':indicatorColor}" 
+          *ngIf="item.link === selectedTabLink"></span>
         </li>
         <ng-template #elseTemp>
         </ng-template>      

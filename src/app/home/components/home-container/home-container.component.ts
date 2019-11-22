@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChildren, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { ImagerSlliderComponent, TopMenu } from 'src/app/shared';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HomeService, token } from '../../services';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-container',
@@ -18,16 +19,24 @@ export class HomeContainerComponent implements OnInit {
   imgSlider:ImagerSlliderComponent;
   
   topMenus$ : Observable<TopMenu[]>;
+
+  selectedTabLink$: Observable<string>;
     
-  constructor(private router : Router, private service : HomeService ,@Inject(token)private baseUrl: string) { 
+  constructor(private router : Router, private service : HomeService ,@Inject(token)private baseUrl: string, private activRouter: ActivatedRoute) { 
 
   }
+  
   /**
    * 通过service中定义的HomeService调用REST API
    * 因为ANGULAR的HTTP使用的是异步方法,所以需要使用subscribe进行订阅
    */
   ngOnInit() {
-      this.topMenus$ = this.service.getTabs();  
+      this.topMenus$ = this.service.getTabs(); 
+      this.selectedTabLink$ = this.activRouter.firstChild.paramMap.pipe(
+        filter(param=>param.has('tabLink')),
+        map(param=>param.get('tabLink'))
+      );
+
   }
   /**
    * 处理菜单点击事件
@@ -38,7 +47,6 @@ export class HomeContainerComponent implements OnInit {
   //  const idx = Math.floor(Math.random()*3);
    // this.scrollableTabBgColor= colors[idx];
    // console.log(colors[idx]);
-     console.log('tabMenu',tabMenu);
     this.router.navigate(['home',tabMenu.link])
   }
 }
